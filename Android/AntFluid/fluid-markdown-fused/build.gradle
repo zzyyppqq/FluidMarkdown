@@ -1,0 +1,38 @@
+plugins {
+    alias(libs.plugins.android.fusedlibrary)
+    id 'maven-publish'
+}
+
+androidFusedLibrary {
+    namespace 'com.fluid.afm.fused'
+    minSdk {
+        version = release(21)
+    }
+}
+
+dependencies {
+    include project(':fluid-markdown')
+    include project(':markwon-core')
+    include project(':markwon-ext-latex')
+    include project(':markwon-ext-strikethrough')
+    include project(':markwon-ext-tables')
+    include project(':markwon-ext-tasklist')
+    include project(':markwon-image')
+    include project(':markwon-html')
+    include project(':markwon-inline-parser')
+    include project(':markwon-syntax-highlight')
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            groupId = 'com.fluid'
+            artifactId = 'fluid-markdown'
+            version = '1.0.0'
+
+            afterEvaluate {
+                from components.fusedLibraryComponent
+            }
+        }
+    }
+}
