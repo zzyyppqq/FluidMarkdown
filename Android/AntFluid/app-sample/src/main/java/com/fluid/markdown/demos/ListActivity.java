@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.fluid.afm.R;
+import com.fluid.afm.app.R;
 
 
 public class ListActivity extends AppCompatActivity {

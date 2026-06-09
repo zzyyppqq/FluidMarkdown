@@ -5,3 +5,51 @@ alias(libs.plugins.android.application) apply false
     alias(libs.plugins.kotlin.compose) apply false
     alias(libs.plugins.android.library) apply false
 }
+
+// Publish library modules to Maven Local with:
+// ./gradlew publishToMavenLocal
+// or a single module, for example:
+// ./gradlew :fluid-markdown:publishToMavenLocal
+def publishableLibraryModules = [
+        'fluid-markdown',
+        'markwon-core',
+        'markwon-ext-latex',
+        'markwon-ext-strikethrough',
+        'markwon-ext-tables',
+        'markwon-ext-tasklist',
+        'markwon-html',
+        'markwon-image',
+        'markwon-inline-parser',
+        'markwon-syntax-highlight'
+]
+
+subprojects { subproject ->
+    if (publishableLibraryModules.contains(subproject.name)) {
+        subproject.group = 'com.fluid'
+        subproject.version = '1.0.0'
+
+        subproject.plugins.withId('com.android.library') {
+            subproject.apply plugin: 'maven-publish'
+
+            subproject.android {
+                publishing {
+                    singleVariant('release')
+                }
+            }
+
+            subproject.afterEvaluate {
+                subproject.publishing {
+                    publications {
+                        release(MavenPublication) {
+                            from subproject.components.release
+
+                            groupId = subproject.group
+                            artifactId = subproject.name
+                            version = subproject.version
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

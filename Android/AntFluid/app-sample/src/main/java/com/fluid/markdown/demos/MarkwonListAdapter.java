@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.fluid.afm.R;
+import com.fluid.afm.app.R;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -5,7 +5,7 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.fluid.afm.R;
+import com.fluid.afm.app.R;
 import com.fluid.afm.markdown.MarkdownParserFactory;
 import com.fluid.afm.markdown.widget.PrinterMarkDownTextView;
 import com.fluid.afm.styles.MarkdownStyles;

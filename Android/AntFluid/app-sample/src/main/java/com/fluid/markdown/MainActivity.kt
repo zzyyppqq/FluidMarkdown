@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.NestedScrollView
 import com.fluid.afm.AFMInitializer
-import com.fluid.afm.R
+import com.fluid.afm.app.R
 import com.fluid.afm.markdown.ElementClickEventCallback
 import com.fluid.afm.markdown.html.SpanTextClickableSpan.ClickableTextType
 import com.fluid.afm.markdown.model.EventModel

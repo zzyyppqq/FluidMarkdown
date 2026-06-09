@@ -1,15 +1,14 @@
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 }
 
 android {
-    namespace 'com.fluid.afm'
+    namespace 'com.fluid.afm.app'
     compileSdk 35
 
     defaultConfig {
-        applicationId "com.fluid.afm"
+        applicationId "com.fluid.afm.app"
         minSdk 21
         targetSdk 35
         versionCode 1
@@ -28,8 +27,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_11
         targetCompatibility JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = '11'
+    kotlin {
+        compilerOptions {
+            jvmTarget = org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_11
+        }
     }
 }
 
